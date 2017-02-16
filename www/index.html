@@ -1,77 +1,32 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+      <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+      <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+      <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
-    <!--For users deploying their apps to Windows 8.1 or Android Gingerbread, platformOverrided.js
+      <!--For users deploying their apps to Windows 8.1 or Android Gingerbread, platformOverrided.js
     will inject platform-specific code from the /merges folder -->
-    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+      <script src="js/platformOverrides.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
+      <!-- ionic/angularjs js -->
+      <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+      <!-- cordova script (this will be a 404 during development) -->
+      <script src="cordova.js"></script>
+
+      <!-- your app's js -->
+      <script src="js/app.js"></script>
   </head>
   <body ng-app="QuizApplication">
-  <h1> hello</h1>
-      <!--First View-->
-      <script id="templates/home.html" type="text/ng-template">
-         <ion-view view-title="Welcome to my Quiz App!">
-             <ion-content ng-controller="StartController">
-               <h1>hello</h1>
-                 <!--start button-->
-                 <button class="button" ng-click="startQuiz()">Start Quiz!</button>
-             </ion-content>
-         </ion-view>
-      </script>
-
-      <!--Second View-->
-      <script id="templates/imageQuestion.html" type="text/ng-template">
-          <ion-view view-title="Image Question">
-              <ion-content>
-                  <img src="img/bear.jpg" style="max-width:50vw;"/>
-                  <!--Buttons with answers go here-->
-                  <button class="button" ng-click="">Lion</button>
-                  <button class="button">Tiger</button>
-                  <button class="button">Bear</button>
-              </ion-content>
-          </ion-view>
-      </script>
-
-      <!--Third View-->
-      <script id="templates/textQuestion.html" type="text/ng-template">
-          <ion-view view-title="Text Question">
-              <ion-content>
-                  <h1>What year is it?</h1>
-                  <!--Text Entry box here-->
-                  <div class="bottom">
-                      <label class="item item-input">
-                            <input type="text" name="answer" id="text-answer-area" ng-model="$parent.textAnswer" placeholder="Your Answer" />
-                      </label>
-                  </div>
-
-                  <button class="button" ng-click="checkAndAdvanceToResults()">View Results!</button>
-              </ion-content>
-          </ion-view>
-      </script>
-
-      <!--Fourth View-->
-      <script id="templates/results.html" type="text/ng-template">
-          <ion-view view-title="Results">
-              <ion-content>
-                  <h1>You got x/2 correct!</h1>
-                  <!--reset done button-->
-                  <button class="button" ng-click="restart()">Take Quiz Again!</button>
-              </ion-content>
-          </ion-view>
-      </script>
+      <ion-pane>
+          <ion-nav-view></ion-nav-view>
+      </ion-pane>
   </body>
 </html>
