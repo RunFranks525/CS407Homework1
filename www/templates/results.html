@@ -1,9 +1,17 @@
 ﻿<!--Fourth View-->
-<ion-view view-title="Results">
-  <ion-header-bar class="stable"></ion-header-bar>
+<ion-view view-title="Results" class="view">
+  <ion-header-bar class="bar-royal">
+    <h1 class="title">Your Results!</h1>
+  </ion-header-bar>
   <ion-content>
-    <h1>You got {{resultAmount}}/2 correct!</h1>
+    <h2 align="center">You got {{resultAmount}}/2 correct!</h2>
+    <hr />
     <!--reset done button-->
-    <button class="button" ng-click="restart()">Take Quiz Again!</button>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col col-33">
+        <button class="button button-royal button-full" ng-click="restart()">Take Quiz Again!</button>
+      </div>
+      <div class="col"></div>
   </ion-content>
 </ion-view>

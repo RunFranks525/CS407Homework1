@@ -1,10 +1,26 @@
 ﻿<!--Second View-->
-<ion-view view-title="Image Question">
-  <ion-header-bar class="stable"></ion-header-bar>
+<ion-view view-title="Image Question" class="view">
+  <ion-header-bar class="bar-royal">
+    <h1 class="title">Image Question</h1>
+  </ion-header-bar>
   <ion-content>
-    <img src="img/bear.jpg"/>
-    <button class="button" ng-click="checkAndAdvanceToText(0)">Lion</button>
-    <button class="button" ng-click="checkAndAdvanceToText(1)">Tiger</button>
-    <button class="button" ng-click="checkAndAdvanceToText(2)">Bear</button>
+    <div class="row">
+        <img src="img/bear.jpg" class="imgQuestion"/>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button button-full button-positive" ng-click="checkAndAdvanceToText(0)">Lion</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button button-full button-energized" ng-click="checkAndAdvanceToText(1)">Tiger</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button button-full button-royal" ng-click="checkAndAdvanceToText(2)">Bear</button>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

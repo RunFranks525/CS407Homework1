@@ -61,19 +61,24 @@ ionicApp.controller('ImageQuestionController', function ($scope, $state, $ionicV
     }
 })
 
-ionicApp.controller('TextQuestionController', function ($scope, $state, $ionicViewSwitcher, $stateParams) {
+ionicApp.controller('TextQuestionController', function ($scope, $state, $ionicViewSwitcher, $stateParams, $ionicLoading) {
     $scope.textAnswer = "";
     $scope.checkAndAdvanceToResults = function () {
         var score = 0;
         var userResponse = $scope.textAnswer;
-        if(userResponse == new Date().getFullYear()){
-            score++;
+        if(userResponse === "") {
+              $ionicLoading.show({ template: 'Please enter a value!', noBackdrop: true, duration: 1000 });
+        }else{
+          if(userResponse == new Date().getFullYear()){
+                    score++;
+                }
+                $ionicViewSwitcher.nextDirection("forward");
+                $state.go("results", {
+                    'imageResult' : $stateParams.imageResult,
+                    'textResult' : score
+                });
         }
-        $ionicViewSwitcher.nextDirection("forward");
-        $state.go("results", {
-            'imageResult' : $stateParams.imageResult,
-            'textResult' : score
-        });
+
     }
 
 })
