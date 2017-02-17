@@ -40,8 +40,7 @@ var ionicApp = angular.module('QuizApplication', ['ionic'])
 })
 ionicApp.controller('StartController', function($scope, $state, $ionicViewSwitcher) {
     $scope.startQuiz = function () {
-        var q = 0;
-        $ionicViewSwitcher.nextDirection(q);
+        $ionicViewSwitcher.nextDirection('forward');
         $state.go("imageQuestion");
     }
 })
@@ -69,10 +68,11 @@ ionicApp.controller('TextQuestionController', function ($scope, $state, $ionicVi
         if(userResponse === "") {
               $ionicLoading.show({ template: 'Please enter a value!', noBackdrop: true, duration: 1000 });
         }else{
-          if(userResponse == new Date().getFullYear()){
+          if(userResponse === new Date().getFullYear()){
                     score++;
                 }
                 $ionicViewSwitcher.nextDirection("forward");
+                $scope.textAnswer = "";
                 $state.go("results", {
                     'imageResult' : $stateParams.imageResult,
                     'textResult' : score
